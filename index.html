@@ -1,67 +1,192 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAP Garland, LLC</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rabah Motorz LLC — Motorcycle Rentals</title>
+  <meta name="description" content="Rabah Motorz LLC — premium motorcycle rentals in Ashland, CA. Modern, reliable bikes for weekend escapes, city rides, and road trips. Grey & blue aesthetic."/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
+    :root{
+      --primary:#1e40af;   /* Blue */
+      --accent:#111827;    /* Dark Grey */
+      --ink:#111827;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f9fafb;        /* Soft grey background */
     }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* Header */
+    header{background:var(--accent); color:#e5e7eb; position:sticky; top:0; z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.15)}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
+    .brand{font-weight:900; letter-spacing:.4px; color:var(--primary)}
+    nav a{display:inline-block; padding:10px 14px; border-radius:12px; color:#c7d2fe; font-weight:700}
+    nav a:hover{background:rgba(255,255,255,.06)}
+    .cta-btn{background:var(--primary); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800}
+
+    /* Hero */
+    .hero-wrap{background:linear-gradient(180deg,#eef2ff,#ffffff); padding:42px 24px}
+    .hero-card{
+      background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:22px;
+      box-shadow:0 30px 60px rgba(0,0,0,.12); padding:28px;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; overflow:hidden;
+      transform:translateY(24px); opacity:0; animation:cardIn .9s ease-out .15s forwards;
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1, h2 {
-      color: #003366;
-    }
-    .contact {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #003366;
-      margin-top: 30px;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+    @keyframes cardIn{to{transform:translateY(0);opacity:1}}
+    .hero-badge{display:inline-flex; align-items:center; gap:10px; background:var(--primary); color:#fff;
+      padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800}
+    .hero-title{font-size:clamp(26px,4vw,42px); line-height:1.15; margin:14px 0 10px; font-weight:900}
+    .hero-title .grad{background:linear-gradient(90deg,#1e40af,#60a5fa); -webkit-background-clip:text; color:transparent}
+    .hero-sub{font-size:1.02rem; color:#374151}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{border:2px solid var(--accent); color:#fff; background:var(--accent); padding:12px 18px; border-radius:14px; font-weight:800}
+    .btn.secondary{background:var(--primary); border-color:var(--primary)}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.2)}
+    .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:#eef2ff;
+      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px}
+    .hero-media img{object-fit:cover; width:100%; height:100%}
+
+    /* Sections */
+    section{padding:56px 24px}
+    section h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px; font-weight:900; color:var(--primary)}
+    .muted{color:var(--muted)}
+
+    /* Cards */
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
+    .card{border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:16px; background:#fff;
+      box-shadow:0 8px 24px rgba(0,0,0,.06); transform:translateY(14px); opacity:0}
+    .card.reveal{animation:reveal .7s ease-out forwards}
+    @keyframes reveal{to{transform:translateY(0); opacity:1}}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    .gallery img{border-radius:14px; aspect-ratio:4/3; object-fit:cover}
+
+    /* Contact */
+    .contact-box{background:var(--primary); color:#fff; border-radius:18px; padding:20px; display:grid; gap:8px; border:1px solid rgba(0,0,0,.06)}
+    .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .contact-actions a{display:inline-block; background:var(--accent); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800}
+
+    footer{background:#0b1020; color:#bfdbfe; padding:18px; text-align:center; font-weight:700}
+
+    @media (max-width:820px){
+      .hero-card{grid-template-columns:1fr; padding:20px}
+      .gallery{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>CAP Garland, LLC</h1>
-    <p>Private Investment Fund</p>
+    <div class="topbar container">
+      <div class="brand">Rabah Motorz LLC</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact" class="cta-btn">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>CAP Garland, LLC is a Washington-based private investment fund focused on delivering value through diversified investment strategies.</p>
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="container">
+      <div class="hero-card">
+        <div>
+          <span class="hero-badge">Motorcycle Rentals</span>
+          <h1 class="hero-title">Ride the city with <span class="grad">power & style.</span></h1>
+          <p class="hero-sub">
+            Rabah Motorz LLC is your go‑to rental hub for modern, well‑maintained motorcycles. From quick city spins to weekend escapes, we’ve got the perfect ride ready in Ashland, California.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#fleet">Browse Fleet</a>
+            <a class="btn secondary" href="#contact">Book Now</a>
+          </div>
+          <p class="muted" style="margin-top:10px; font-weight:600">
+            +1 812 613 1270 • info@cenrivor.shop
+          </p>
+        </div>
+        <div class="hero-media">
+          <img src="https://vkcyprus.com/media/k2/items/cache/07f339079288faa9add1ed3e5a9efb6c_XL.jpg" alt="Sport bike on coastal road">
+          <img src="https://www.webbikeworld.com/wp-content/uploads/2020/12/Motorcyclists-getting-safer.jpg" alt="Two riders with helmets">
+          <img src="https://avatars.mds.yandex.net/i?id=c7ccf560ecd7a9556cc5a2467250901e-5221636-images-thumbs&ref=rim&n=33&w=480&h=320" alt="Motorcycles lineup">
+          <img src="https://www.motorcyclistonline.com/resizer/69UilLwfqyWdCQdT1-oDpu7vBec=/1440x0/smart/cloudfront-us-east-1.images.arcpublishing.com/octane/TQFWWXG4UQO6KBCEX5VRITAF4Q.jpg" alt="Adventure motorcycle on highway">
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- About -->
+  <section id="about" class="container">
+    <h2>About Us</h2>
+    <p class="muted">
+      We keep things simple: quality bikes, flexible plans, and friendly service. Every motorcycle is regularly serviced, sanitized, and ready to roll. Helmets and add‑ons available on request.
+    </p>
+    <div class="cards" style="margin-top:12px">
+      <article class="card reveal"><strong>Reliability:</strong> Clean, inspected bikes with maintenance logs.</article>
+      <article class="card reveal"><strong>Flexibility:</strong> Hourly, daily, and weekend packages.</article>
+      <article class="card reveal"><strong>Safety First:</strong> DOT helmets & tips for new riders.</article>
+      <article class="card reveal"><strong>Local Routes:</strong> Staff picks for the best Bay Area rides.</article>
+    </div>
+  </section>
+
+  <!-- Fleet -->
+  <section id="fleet" class="container">
+    <h2>Our Fleet</h2>
+    <div class="cards">
+      <article class="card reveal"><h3>Naked / Street</h3><p>Agile and fun for urban rides and short trips.</p></article>
+      <article class="card reveal"><h3>Sport</h3><p>Responsive performance for twisty roads.</p></article>
+      <article class="card reveal"><h3>Adventure</h3><p>Comfortable upright position for longer escapes.</p></article>
+      <article class="card reveal"><h3>Scooters</h3><p>Easy, economical mobility for errands and commuting.</p></article>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://vkcyprus.com/media/k2/items/cache/07f339079288faa9add1ed3e5a9efb6c_XL.jpg" alt="Coastal road ride">
+      <img src="https://www.webbikeworld.com/wp-content/uploads/2020/12/Motorcyclists-getting-safer.jpg" alt="Group of riders">
+      <img src="https://avatars.mds.yandex.net/i?id=c7ccf560ecd7a9556cc5a2467250901e-5221636-images-thumbs&ref=rim&n=33&w=480&h=320" alt="Bikes in parking lot">
+      <img src="https://wikiway.com/upload/iblock/350/Arenda-mototsiklov.jpeg" alt="Motorcycle rental sign">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
     <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Address:</strong> 915 W 2nd Ave, Spokane, WA 99201</p>
-      <p><strong>Email:</strong> <a href="mailto:ryanberg@capgarland.shop">ryanberg@capgarland.shop</a></p>
-      <p><strong>Phone:</strong> (509) 822-3850</p>
+    <div class="contact-box">
+      <div><strong>Company:</strong> Rabah Motorz LLC</div>
+      <div><strong>Domain:</strong> Rent Motorcycle</div>
+      <div><strong>Phone:</strong> +1 812 613 1270</div>
+      <div><strong>Email:</strong> info@cenrivor.shop</div>
+      <div><strong>Address:</strong> E 14th St, Ashland, CA 94578, United States</div>
+      <div class="contact-actions">
+        <a href="mailto:info@cenrivor.shop?subject=Rental%20Inquiry%20-%20Rabah%20Motorz" target="_blank" rel="noopener">Email Us</a>
+        <a href="tel:+18126131270">Call Now</a>
+        <a href="https://wa.me/18126131270" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 CAP Garland, LLC. All rights reserved.
+    © 2025 Rabah Motorz LLC — All rights reserved
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }
+      })
+    }, {threshold:.15});
+    document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+  </script>
 </body>
 </html>
