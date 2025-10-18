@@ -7,76 +7,77 @@
   <meta name="description" content="Rabah Motorz LLC — premium motorcycle rentals in Ashland, CA. Modern, reliable bikes for weekend escapes, city rides, and road trips. Grey & blue aesthetic."/>
   <style>
   /* =====================
-     RABAH MOTORZ — NEW THEME (Neo-glass / Blue Slate)
-     Completely refreshed look & feel
+     RABAH MOTORZ — NEW THEME (Neo-glass / Yellow & Black)
      ===================== */
   :root{
-    --primary:#2563eb;   /* Electric Blue */
-    --primary-600:#1d4ed8;
-    --accent:#00d4ff;    /* Cyan Accent */
-    --surface:#0b1220;   /* Deep slate */
-    --elev:#0f172a;      /* Card layer */
-    --ink:#e5e7eb;       /* Light text */
-    --muted:#94a3b8;     /* Muted text */
-    --ring:rgba(37,99,235,.45);
+    --primary:#facc15;   /* Yellow */
+    --primary-600:#eab308;
+    --accent:#ffdd33;    /* Bright Yellow Accent */
+    --surface:#0a0a0a;   /* Near Black */
+    --elev:#141414;      /* Card layer */
+    --ink:#f5f5f5;       /* Light text */
+    --muted:#a3a3a3;     /* Muted text */
+    --ring:rgba(250,204,21,.45);
   }
   @media (prefers-color-scheme: light){
-    :root{ --surface:#f5f7fb; --elev:#ffffff; --ink:#0f172a; --muted:#475569; --ring:rgba(29,78,216,.25); }
+    :root{ --surface:#fffdf2; --elev:#ffffff; --ink:#111827; --muted:#4b5563; --ring:rgba(234,179,8,.28); }
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 20% -10%, rgba(37,99,235,.14), transparent 60%), radial-gradient(900px 500px at 120% 10%, rgba(0,212,255,.12), transparent 55%), var(--surface); color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6}
+  html,body{margin:0;padding:0;background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(250,204,21,.14), transparent 60%),
+    radial-gradient(900px 500px at 120% 10%, rgba(255,221,51,.12), transparent 55%),
+    var(--surface);
+    color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .container{max-width:1160px;margin:0 auto;padding:24px}
 
   /* Header */
   header{position:sticky; top:0; z-index:40;}
-  .topbar{backdrop-filter:saturate(140%) blur(10px); background:linear-gradient(180deg, rgba(15,23,42,.72), rgba(15,23,42,.35)); border-bottom:1px solid rgba(148,163,184,.12); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
+  .topbar{backdrop-filter:saturate(140%) blur(10px); background:linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.35)); border-bottom:1px solid rgba(255,255,255,.07); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
   .brand{font-weight:900; letter-spacing:.4px; color:var(--accent)}
   nav a{display:inline-block; padding:10px 14px; border-radius:12px; color:var(--muted); font-weight:700; position:relative}
   nav a:after{content:""; position:absolute; left:14px; right:14px; bottom:8px; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--accent), transparent); opacity:0; transform:scaleX(.6); transition:.25s ease}
   nav a:hover{color:#fff}
   nav a:hover:after{opacity:1; transform:scaleX(1)}
-  .cta-btn{background:linear-gradient(135deg,var(--primary),var(--accent)); color:#0b1220; padding:10px 14px; border-radius:12px; font-weight:900; box-shadow:0 8px 24px rgba(37,99,235,.35)}
+  .cta-btn{background:linear-gradient(135deg,var(--primary-600),var(--accent)); color:#0a0a0a; padding:10px 14px; border-radius:12px; font-weight:900; box-shadow:0 8px 24px rgba(250,204,21,.35)}
 
   /* Hero */
-  .hero-wrap{padding:56px 24px; background:radial-gradient(700px 380px at 70% -20%, rgba(37,99,235,.25), transparent 60%)}
+  .hero-wrap{padding:56px 24px; background:radial-gradient(700px 380px at 70% -20%, rgba(250,204,21,.2), transparent 60%)}
   .hero-card{
-    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(148,163,184,.12); border-radius:28px;
-    box-shadow:0 30px 80px rgba(2,6,23,.6), inset 0 -1px 0 rgba(255,255,255,.04); padding:34px;
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:28px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 -1px 0 rgba(255,255,255,.04); padding:34px;
     display:grid; grid-template-columns:1.15fr .85fr; gap:26px; overflow:hidden;
     transform:translateY(26px); opacity:0; animation:cardIn .9s cubic-bezier(.2,.8,.2,1) .1s forwards;
   }
   @keyframes cardIn{to{transform:translateY(0);opacity:1}}
-  .hero-badge{display:inline-flex; align-items:center; gap:10px; background:rgba(37,99,235,.15); color:#c7d2fe;
-    padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800; border:1px solid rgba(99,102,241,.25)}
+  .hero-badge{display:inline-flex; align-items:center; gap:10px; background:rgba(250,204,21,.18); color:#fff7c2;
+    padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800; border:1px solid rgba(250,204,21,.35)}
   .hero-title{font-size:clamp(30px,5vw,56px); line-height:1.1; margin:14px 0 10px; font-weight:900; letter-spacing:-.02em}
-  .hero-title .grad{background:conic-gradient(from 120deg at 50% 50%, #60a5fa, #22d3ee, #93c5fd); -webkit-background-clip:text; color:transparent}
+  .hero-title .grad{background:conic-gradient(from 120deg at 50% 50%, #fde047, #facc15, #ffea7a); -webkit-background-clip:text; color:transparent}
   .hero-sub{font-size:1.06rem; color:var(--muted)}
   .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-  .btn{border:1px solid rgba(148,163,184,.2); color:#fff; background:linear-gradient(180deg,#0b1220,#0f172a); padding:12px 18px; border-radius:16px; font-weight:800; box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
-  .btn.secondary{background:linear-gradient(135deg,var(--primary-600),var(--primary)); border-color:transparent; color:#fff}
-  .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(2,6,23,.45)}
-  .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:linear-gradient(180deg,#0b1220,#0f172a);
+  .btn{border:1px solid rgba(255,255,255,.12); color:#fff; background:linear-gradient(180deg,#0a0a0a,#141414); padding:12px 18px; border-radius:16px; font-weight:800; box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+  .btn.secondary{background:linear-gradient(135deg,var(--primary-600),var(--primary)); border-color:transparent; color:#0a0a0a}
+  .btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(0,0,0,.55)}
+  .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:linear-gradient(180deg,#0a0a0a,#141414);
     display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px}
-  .hero-media img{object-fit:cover; width:100%; height:100%; filter:saturate(1.05);}
+  .hero-media img{object-fit:cover; width:100%; height:100%; filter:saturate(1.05)}
 
   /* Sections */
   section{padding:64px 24px}
-  section h2{font-size:clamp(22px,3vw,34px); margin:0 0 14px; font-weight:900; color:#dbeafe}
+  section h2{font-size:clamp(22px,3vw,34px); margin:0 0 14px; font-weight:900; color:#fde68a}
   .muted{color:var(--muted)}
 
   /* Cards */
   .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
-  .card{border:1px solid rgba(148,163,184,.14); border-radius:18px; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-    box-shadow:0 10px 30px rgba(2,6,23,.35); transform:translateY(14px); opacity:0}
+  .card{border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow:0 10px 30px rgba(0,0,0,.45); transform:translateY(14px); opacity:0}
   .card.reveal{animation:reveal .7s ease-out forwards}
   @keyframes reveal{to{transform:translateY(0); opacity:1}}
-  .card h3{margin:0 0 6px; font-size:1.06rem; color:#bfdbfe}
-
-  /* Fleet feature pills */
+  .card h3{margin:0 0 6px; font-size:1.06rem; color:#fef08a}
   .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-size:.86rem; font-weight:700;
-    background:rgba(37,99,235,.12); color:#c7d2fe; border:1px solid rgba(99,102,241,.25)}
+    background:rgba(250,204,21,.14); color:#fff7c2; border:1px solid rgba(250,204,21,.35)}
 
   /* Gallery */
   .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:12px}
@@ -87,12 +88,12 @@
   .gallery img:nth-child(4){grid-column:span 7}
 
   /* Contact */
-  .contact-box{background:linear-gradient(135deg, rgba(37,99,235,.18), rgba(0,212,255,.14)); color:#eaf2ff; border-radius:20px; padding:22px; display:grid; gap:10px; border:1px solid rgba(148,163,184,.18)}
+  .contact-box{background:linear-gradient(135deg, rgba(250,204,21,.18), rgba(255,221,51,.14)); color:#fff7bf; border-radius:20px; padding:22px; display:grid; gap:10px; border:1px solid rgba(255,255,255,.12)}
   .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
-  .contact-actions a{display:inline-block; background:linear-gradient(180deg,#0b1220,#0f172a); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; border:1px solid rgba(148,163,184,.22)}
-  .contact-actions a:hover{box-shadow:0 10px 24px rgba(2,6,23,.45)}
+  .contact-actions a{display:inline-block; background:linear-gradient(180deg,#0a0a0a,#141414); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800; border:1px solid rgba(255,255,255,.12)}
+  .contact-actions a:hover{box-shadow:0 10px 24px rgba(0,0,0,.55)}
 
-  footer{background:#050814; color:#93c5fd; padding:22px; text-align:center; font-weight:800; border-top:1px solid rgba(148,163,184,.14)}
+  footer{background:#000; color:#fde68a; padding:22px; text-align:center; font-weight:800; border-top:1px solid rgba(255,255,255,.08)}
 
   @media (max-width:920px){
     .hero-card{grid-template-columns:1fr; padding:22px}
